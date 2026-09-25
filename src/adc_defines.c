@@ -4,7 +4,7 @@
 #include "adc_defines.h"
 void ADC_Init(void)
 {
-	PINSEL1|0x154000001;
+	PINSEL1|0x15400001;
 	ADCR = PDN_BIT|CLKDIV_VALUE;
 }
 void ADC_Read(u32 CHN3, u32 *AdcDval,f32* eAR)
