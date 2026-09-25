@@ -36,7 +36,8 @@ ARM_PROJECT/
 |   |-- interrupt.c           EINT0 and EINT1 interrupt service routines
 |   |-- keypad_defines.c      4x4 keypad scanning + numeric/password entry
 |   |-- lcd_defines.c         16x2 LCD driver
-|   `-- LM35.c                LM35 temperature read (Celsius / Fahrenheit)
+|   |-- LM35.c                LM35 temperature read (Celsius / Fahrenheit)
+|   `-- rtclcd.c              RTC initialisation (RTC_Init) from the 32.768 kHz crystal
 |-- include/
 |   |-- headerfile.h          common includes, pin macros, extern globals
 |   |-- type.h                u8/s8/u32/s32/f32/cs8 typedefs
@@ -48,13 +49,13 @@ ARM_PROJECT/
 |   |-- LM35.h
 |   |-- Project_defines.h     prototypes of the project-level task functions
 |   `-- rtc.h                 RTC_Init() prototype
-`-- tests/
-    `-- rtclcd.c              standalone RTC initialisation module (RTC_Init)
 ```
+
+## Features Implemented in the Code
 
 ### 1. Real-Time Clock (RTC)
 
-`tests/rtclcd.c` provides `RTC_Init()`, which resets the RTC (`CCR`), loads
+`src/rtclcd.c` provides `RTC_Init()`, which resets the RTC (`CCR`), loads
 `PREINT` / `PREFRAC` so the 32.768 kHz crystal is divided down to a 1 Hz time
 base, and then enables the RTC. The program reads `DOM`, `MONTH`, `YEAR`,
 `HOUR`, `MIN` and `SEC` directly as register values.
@@ -230,6 +231,7 @@ were invented):
 - `Project.h` - included by `src/Project_defines.c` and `include/headerfile.h`
 - `ADC.h` - included by `src/LM35.c` and `include/headerfile.h`
 
-In addition, no separate standalone `RTC.c` test program exists; the RTC
-initialisation code supplied is `tests/rtclcd.c`.
+There is no separate standalone RTC test program in this repository. The RTC
+initialisation code is part of the application itself, in `src/rtclcd.c`, which is
+compiled into the main program and provides `RTC_Init()` to `Hardware_Init()`.
 
