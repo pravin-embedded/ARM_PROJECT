@@ -1,7 +1,6 @@
 //headerfile.h
 
 #include <lpc21xx.h>
-#include "ADC.h"
 #include "delay.h"
 #include "type.h"
 #include "lcd.h"
@@ -9,7 +8,7 @@
 #include "LM35.h"
 #include "interrupt.h"
 #include "keypadfunc.h"
-#include "Project.h"
+#include "Project_defines.h"
 #define EINT1_CH 15
 #define EINT0_CH 14
 #define ROW 0x000F0000
