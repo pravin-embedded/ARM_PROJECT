@@ -14,11 +14,11 @@ f32 Read_LM35degC(void)
 	sum += eAR * 100;
 	delay_MS(2);
 	}
-	return sum;
+	return sum/20.0;
 }
 f32 Read_LM35degf(void)
 {
-	u8 tempc;
+	f32 tempc;
 	tempc=Read_LM35degC();
 	return ((tempc*(1.8))+32);
 	
