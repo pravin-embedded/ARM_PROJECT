@@ -1,7 +1,7 @@
 //adc_defines.c
 #include <lpc21xx.h>
 #include "delay.h"
-#include "adc_defines.h"
+#include "ADC_defines.h"
 void ADC_Init(void)
 {
 	PINSEL1|0x15400001;
