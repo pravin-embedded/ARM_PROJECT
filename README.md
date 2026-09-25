@@ -129,6 +129,7 @@ ADC Resolution
 
 The project demonstrates how multiple microcontroller peripherals can be integrated into an examination-management application to provide automated timing, environmental monitoring, status indication, and interruption handling.
 
+```
 > **Note:** This project was developed as a practical LPC2148 peripheral-integration exercise, with the objective of understanding and implementing the individual hardware peripherals through a single application.
 
 ## Author
